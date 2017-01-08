@@ -193,8 +193,8 @@ print parity
 #    it so the job title defaults to "Engineer" if a job title is not passed
 #    in. Return the person's title and name in one string.
 
-def full_title():
-    pass
+def full_title(name, job_title="Engineer"):
+    return job_title + name
 
 # 2. Given a recipient name & job title and a sender name, print the following
 #    letter:
