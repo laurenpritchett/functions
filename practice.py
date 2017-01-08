@@ -194,7 +194,10 @@ print parity
 #    in. Return the person's title and name in one string.
 
 def full_title(name, job_title="Engineer"):
-    return job_title + name
+    """Return the default or given title and name in one string."""
+
+    return "{} {}".format(job_title, name)
+
 
 # 2. Given a recipient name & job title and a sender name, print the following
 #    letter:
@@ -206,8 +209,15 @@ def full_title(name, job_title="Engineer"):
 #    greeting.
 
 
-def write_letter():
-    pass
+def write_letter(name, job_title, sender_name):
+    """Print a letter to a recipient's full title from a specified sender.
+
+    For example:
+    "Dear Hacker Jane Hacks, I think you are amazing! Sincerely, Balloonicorn"
+    """
+
+    print "Dear {}, I think you are amazing! Sincerely, {}".format(full_title(name, job_title), sender_name)
+
 
 ###############################################################################
 
