@@ -81,18 +81,44 @@ def hello_world():
 # 2. Write a function called 'say_hi' that takes a name as a string and
 #    prints "Hi" followed by the name.
 
+def say_hi(name):
+    """Print "Hi" followed by the input name as a string."""
+
+    print "Hi {}".format(name)
+
 
 # 3. Write a function called 'print_product' that takes two integers and
 #    multiplies them together. Print the result.
+
+def print_product(int1, int2):
+    """Multiply two integers and print the result."""
+
+    print int1 * int2
 
 
 # 4. Write a function called 'repeat_string' that takes a string and an integer
 #    and prints the string that many times
 
+def repeat_string(word_or_words, whole_number):
+    """Print an input string a specified number of times."""
+
+    print word_or_words * whole_number
+
 
 # 5. Write a function called 'print_sign' that takes an integer and prints
 #    "Higher than 0" if higher than zero and "Lower than 0" if lower than zero.
 #    If the integer is zero, print "Zero".
+
+def print_sign(number):
+    """Evaluate an integer and print whether it is higher than 0, lower than 0,
+    or equal to 0."""
+
+    if number > 0:
+        print "Higher than 0"
+    elif number < 0:
+        print "Lower than 0"
+    elif number == 0:
+        print "Zero"
 
 
 # 6. Write a function called 'is_divisible_by_three' that takes an integer and
