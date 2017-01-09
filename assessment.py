@@ -66,6 +66,10 @@ included in the doctest.
     >>> arbitrary_append_to_list([1, 2, 3], 1)
     [1, 2, 3, 1]
 
+    >>> word_and_word_times_three("Balloonicorn")
+    ('Balloonicorn', 'BalloonicornBalloonicornBalloonicorn')
+
+
 """
 
 ###############################################################################
@@ -225,6 +229,15 @@ def arbitrary_append_to_list(lst, *therest):
 
 #>>> outer("Balloonicorn")
 #('Balloonicorn', 'BalloonicornBalloonicornBalloonicorn')
+
+
+def word_and_word_times_three(word):
+    """Return tuple containing input word and that word repeated thrice."""
+
+    def word_times_three(word):
+        return word * 3
+    tup = (word, word_times_three(word))
+    return tup
 
 
 ###############################################################################
