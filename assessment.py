@@ -16,6 +16,12 @@ included in the doctest.
     >>> full_name("John","Smith")
     'John Smith'
 
+    >>> print_greeting("John", "Smith", "Pleasanton")
+    Hi, John Smith, we're from the same place!
+
+    >>> print_greeting("Harry", "Potter", "Little Whinging")
+    Hi Harry Potter, where are you from?
+
 PART TWO:
 
     >>> is_berry("blackberry")
@@ -53,6 +59,12 @@ PART TWO:
 
 PART THREE: Write your own function declarations - Part 3 questions aren't
 included in the doctest.
+
+    >>> arbitrary_append_to_list([1, 2, 3], 4, 5, 6)
+    [1, 2, 3, 4, 5, 6]
+
+    >>> arbitrary_append_to_list([1, 2, 3], 1)
+    [1, 2, 3, 1]
 
 """
 
@@ -92,6 +104,14 @@ def full_name(first, last):
 #        (a) evaluates to.
 
 
+def print_greeting(first, last, town):
+    """Print one of two messages regarding hometowns."""
+
+    if is_hometown(town):
+        print "Hi, {}, we're from the same place!".format(full_name(first, last))
+    else:
+        print "Hi {}, where are you from?".format(full_name(first, last))
+
 
 ###############################################################################
 
@@ -105,7 +125,10 @@ def full_name(first, last):
 def is_berry(fruit):
     """Determines if fruit is a berry"""
 
-    pass
+    if fruit == "strawberry" or fruit == "cherry" or fruit == "blackberry":
+        return True
+    else:
+        return False
 
 
 # (b) Write another function, shipping_cost(), which calculates shipping cost
@@ -116,7 +139,10 @@ def is_berry(fruit):
 def shipping_cost(fruit):
     """Calculates shipping cost of fruit"""
 
-    pass
+    if is_berry(fruit):
+        return 0
+    else:
+        return 5
 
 
 # 2. Make a function that takes in a number and a list of numbers. It should
@@ -127,8 +153,9 @@ def append_to_list(lst, num):
     """Creates a new list consisting of the old list with the given number
        added to the end."""
 
-    pass
-
+    new_list = lst[:]
+    new_list.append(num)
+    return new_list
 
 
 # 3. Write a function calculate_price to calculate an item's total cost by
@@ -147,9 +174,22 @@ def append_to_list(lst, num):
 #    Your function should return the total cost of the item, including tax and
 #    fees.
 
-def calculate_price(FILL_ME_IN):
+def calculate_price(base_price, state, percentage=.05):
+    """Calculates total price of item including tax and fees."""
 
-    pass
+    total = base_price + base_price * percentage
+    if state == "MA":
+        if base_price < 100:
+            total += 1
+        else:
+            total += 3
+    if state == "CA":
+        total += total * .03
+    if state == "PA":
+        total += 2
+    if percentage != 0:
+        total = float(format(total, '0.1f'))
+    return total
 
 
 ###############################################################################
@@ -166,6 +206,13 @@ def calculate_price(FILL_ME_IN):
 # isn't something we've discussed yet in class; you might need to google how to
 # write a Python function that takes in an arbitrary number of arguments.
 
+def arbitrary_append_to_list(lst, *therest):
+    """Take a list and append a variable number of additional arguments."""
+
+    arbitrary_list = list(therest)
+    for item in arbitrary_list:
+        lst.append(item)
+    return lst
 
 # 2. Make a new function with a nested inner function.
 # The outer function will take in a word.
